@@ -111,3 +111,4 @@ ax.set_yticklabels(aoicolnames)
 plt.xlabel('Recording time')
 plt.ylabel('Areas of interest')
 
+plt.show()
