@@ -123,3 +123,5 @@ for i in range(len(transmatrix)):
         ax.annotate(str(transmatrix[i,j]),xy=(j,i),bbox=dict(facecolor='white', edgecolor='white', alpha=0.5))
 plt.ylabel('From AOI')
 plt.xlabel('To AOI')
+
+plt.show()
