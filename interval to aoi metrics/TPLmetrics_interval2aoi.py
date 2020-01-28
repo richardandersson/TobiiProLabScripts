@@ -29,6 +29,10 @@ jane    metric2   10
 
 
 @author: Richard Andersson, Tobii Pro
+
+Written/tested with Python 3.7.
+Requires the package Pandas.
+Tested with metrics from Tobii Pro Lab 1.130
 """
 
 import pandas as pd
