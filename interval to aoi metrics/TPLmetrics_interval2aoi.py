@@ -12,7 +12,7 @@ Also excludes metrics with "Events" in the name, because otherwise events may
 be misidentified as an AOI.
 
 Script will try to drop metrics that do not belong to any AOI (i.e. general 
-interal/non-AOI metrics), because they become very confusable with AOI metrics 
+interval/non-AOI metrics), because they become very confusable with AOI metrics 
 since there will be a column specifying AOI for every row.
 
 Will resave your specific file with the suffix "- LONG".
@@ -34,7 +34,6 @@ jane    metric2   10
 import pandas as pd
 import re
 
-# filename = r'C:\Users\rann\OneDrive - Tobii AB (Publ)\Python programming\misc\my metrics export.tsv'
 
 def TPLmetrics_interval2aoi(filename):
 
@@ -67,7 +66,6 @@ def TPLmetrics_interval2aoi(filename):
                 meta_columns.append(i)
                 continue
     
-    # extract columns indices (because we will change the names soon)
     
     # drop non-AOI metrics
     df.drop(nonAOImetrics_columns, axis=1, inplace=True)
@@ -83,7 +81,7 @@ def TPLmetrics_interval2aoi(filename):
     
     # Export to tsv file
     new_filename = re.findall('(.+)\.tsv', filename)[0] + ' - LONG.tsv'
-    df.to_csv(new_filename, sep='\t')#, na_rep='', float_format=None, columns=True, header=True, index=True, index_label=None, mode='w', encoding=None, compression='infer', quoting=None, quotechar='"', line_terminator=None, chunksize=None, date_format=None, doublequote=True, escapechar=None, decimal='.')
+    df.to_csv(new_filename, sep='\t')
 
 
 if __name__ == '__main__':
