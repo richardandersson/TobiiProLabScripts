@@ -32,11 +32,12 @@ jane    metric2   10
 
 Written/tested with Python 3.7.
 Requires the package Pandas.
-Tested with metrics from Tobii Pro Lab 1.130
+Tested with metrics from Tobii Pro Lab 1.138
 """
 
 import pandas as pd
 import re
+import sys
 
 
 def TPLmetrics_interval2aoi(filename):
@@ -50,7 +51,7 @@ def TPLmetrics_interval2aoi(filename):
     
     for i in df.columns:
     
-        if len(re.findall('\w\.\w+$', i)) != 0: # if metric succeeded by AOI name/tag
+        if len(re.findall('\w\.[&\w]+$', i)) != 0: # if metric succeeded by AOI name/tag
             
             if len(re.findall('\w+Events?\..+$', i)) != 0: # if event metric
                 meta_columns.append(i)
@@ -58,7 +59,7 @@ def TPLmetrics_interval2aoi(filename):
             
             else: # AOI metric
                 AOI_columns.append(i) # appends full name of metrics column
-                AOI_values.append(re.findall('\.(\w+)$',i)[0]) # appends just AOI/AOItag name
+                AOI_values.append(re.findall('\.([&\w]+)$',i)[0]) # appends just AOI/AOItag name
             
         else: # not followed by AOI name/tag
             
@@ -89,5 +90,9 @@ def TPLmetrics_interval2aoi(filename):
 
 
 if __name__ == '__main__':
-    filename = r'my metrics export.tsv'
-    TPLmetrics_interval2aoi(filename)
+    if len(sys.argv) > 1:
+        for i in sys.argv[1:]:
+            TPLmetrics_interval2aoi(i)
+    else:
+        filename = r'shopper metrics.tsv'
+        TPLmetrics_interval2aoi(filename)
