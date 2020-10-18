@@ -20,15 +20,15 @@ No warranties or guarantees!
 
 
 # POINT FILENAME TO YOUR EXPORTED DATA FILE HERE
-filename = r'transition test Data Export.tsv' # add path if needed
+filename = r'Data Export.tsv' # add path if needed
 ###############################################################################
 
 # EXTRACT FIXATIONS AND AOI HITS FROM FILE
 import re
 import numpy as np
 
-
-with open(filename, mode='r', encoding='UTF-8-sig') as x:
+# Replace encoding with 'utf-8-sig' if you use Pro Lab before 1.138
+with open(filename, mode='r', encoding='utf-8') as x:
     dat = x.readlines()
 
 
