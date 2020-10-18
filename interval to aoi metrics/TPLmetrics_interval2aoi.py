@@ -42,7 +42,8 @@ import sys
 
 def TPLmetrics_interval2aoi(filename):
 
-    df = pd.read_csv(filename, sep='\t', header=0)
+    # Change encoding below to 'utf-8-sig' if you use Pro Lab before the 1.138 version.
+    df = pd.read_csv(filename, sep='\t', header=0, encoding='utf-8')
     
     meta_columns = []
     AOI_columns = []
@@ -77,7 +78,7 @@ def TPLmetrics_interval2aoi(filename):
     
     # melt to long format
     df = df.melt(id_vars = meta_columns, var_name='MetricAOI', value_name='value')
-    df[['Metric','AOI']] = df.MetricAOI.str.split(".",expand=True)
+    df[['Metric','AOI']] = df.MetricAOI.str.split(".", expand=True)
     
     # Then group back up again
     meta_columns.extend(['AOI', 'Metric'])
