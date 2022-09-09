@@ -18,14 +18,15 @@ since there will be a column specifying AOI for every row.
 Will resave your specific file with the suffix "- LONG".
 
 
-META1    METRIC1.AOI    METRIC2.AOI
+## Example
+META1    METRIC.AOI_1    METRIC.AOI_2
 jane         5               10
 
 ...becomes...
 
-META1    METRIC    AOI
-jane    metric1    5
-jane    metric2   10
+META1 AOI    METRIC
+jane  AOI_1  5 
+jane  AOI_2  10
 
 
 @author: Richard Andersson, Tobii Pro
