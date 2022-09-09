@@ -96,7 +96,7 @@ for k in range(len(aoii)):
                 if hit == '1': # a new fixation and is an AOI-hit
                     start_list.append( (int(elems[ti]) - start_time)/1000 )
                     dur_list.append( float(elems[di]) )
-                    name_list.append( float(k) )
+                    name_list.append( k )
                     previous_em = current_em
                 else:
                     continue
@@ -108,14 +108,21 @@ for k in range(len(aoii)):
 # PLOTTING THE DATA
 import matplotlib.pyplot as plt
 
+cmap = plt.rcParams['axes.prop_cycle'].by_key()['color']
+colors = [cmap[i] for i in name_list]
+# color
+
 plt.barh(y=name_list, 
          width=dur_list, 
          left=start_list, 
-         height=0.3)
+         height=0.3,
+         color=colors
+         )
 
 ax = plt.gca()
 ax.set_yticks(list(range(len(aoii))))
 ax.set_yticklabels(aoicolnames)
-plt.xlabel('Time (ms from start)')
-plt.ylabel('Areas of interest')
+plt.xlabel('Time (ms from start)', fontsize=16)
+plt.ylabel('Areas of interest', fontsize=16)
+plt.gcf().tight_layout()
 plt.show()
