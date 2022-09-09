@@ -121,7 +121,7 @@ plt.colorbar()
 for i in range(len(transmatrix)):
     for j in range(len(transmatrix)):
         ax.annotate(str(transmatrix[i,j]),xy=(j,i),bbox=dict(facecolor='white', edgecolor='white', alpha=0.5))
-plt.ylabel('From AOI')
-plt.xlabel('To AOI')
-
+plt.ylabel('From AOI', fontsize=16)
+plt.xlabel('To AOI', fontsize=16)
+plt.gcf().tight_layout()
 plt.show()
