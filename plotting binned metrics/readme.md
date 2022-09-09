@@ -1,4 +1,4 @@
-# Floating bar graph
+# Binned metrics visualization
 
 Visualizing gaze data from an AOI-based metrics format from Tobii Pro Lab as a binned AOI-over-time plot in R.
 
