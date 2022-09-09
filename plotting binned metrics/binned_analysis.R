@@ -7,7 +7,7 @@
 
 
 library(ggplot2)
-#library(dplyr)
+library(dplyr)
 
 dat <- read.delim2("C:/YOUR PATH TO THE FILE/Tobii Pro Lab Demo - Decision Making Metrics AOIbased.tsv",
                   header=TRUE, sep="\t", comment.char="#", fileEncoding="UTF-8")
